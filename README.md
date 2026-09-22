@@ -74,6 +74,17 @@ start index.html
 python -m http.server 8000
 ```
 
+## 고친 내용이 배포본에 안 보일 때
+
+GitHub Pages 는 `assets/`·`content/` 파일에 긴 캐시 헤더를 붙입니다.
+내용을 고쳤는데 브라우저에 그대로면, `index.html` 아래쪽의 버전 숫자를 올리세요.
+
+```html
+<script src="content/session-04.js?v=2"></script>   <!-- 3, 4 … 로 올리기 -->
+```
+
+`index.html` 자체는 캐시가 짧아 바로 반영됩니다.
+
 ## 배포 (GitHub Pages)
 
 ```bash
