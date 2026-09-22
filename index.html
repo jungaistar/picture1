@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="ko" data-theme="auto">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>4강 · 이미지 만들기 — 학습 사이트</title>
+<meta name="description" content="AI 이미지 만들기 실습 학습 페이지 — 여섯 줄 프롬프트 프레임워크와 단계별 수정 실습.">
+<link rel="preconnect" href="https://cdn.jsdelivr.net">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<a class="skip" href="#main">본문으로 건너뛰기</a>
+
+<header class="topbar">
+  <div class="wrap topbar-in">
+    <a class="brand" href="#top">
+      <span class="brand-mark" aria-hidden="true"></span>
+      <span class="brand-text">
+        <strong data-bind="site.title">학습 사이트</strong>
+        <small data-bind="site.subtitle"></small>
+      </span>
+    </a>
+
+    <div class="topbar-tools">
+      <div class="fontsize" role="group" aria-label="글자 크기 조절">
+        <button type="button" data-font="down" aria-label="글자 작게">－</button>
+        <span class="fontsize-val"><span id="fontStep">2</span>/6</span>
+        <button type="button" data-font="up" aria-label="글자 크게">＋</button>
+      </div>
+      <button type="button" class="icon-btn" id="themeBtn" aria-label="밝게/어둡게 전환">
+        <span data-theme-icon>◐</span>
+      </button>
+      <button type="button" class="icon-btn menu-btn" id="menuBtn" aria-expanded="false" aria-controls="navdrawer">
+        메뉴
+      </button>
+    </div>
+  </div>
+
+  <nav id="navdrawer" class="navdrawer" aria-label="주요 메뉴">
+    <div class="wrap navdrawer-in" data-slot="nav"></div>
+  </nav>
+</header>
+
+<main id="main">
+
+  <!-- ══ HERO ══ -->
+  <section class="hero" id="top">
+    <div class="wrap">
+      <p class="eyebrow">
+        <span data-bind="meta.sessionLabel">4강</span>
+        <span class="dot">·</span>
+        <span data-bind="meta.instructor"></span>
+        <span class="dot">·</span>
+        <span data-bind="meta.duration"></span>
+      </p>
+      <h1 data-bind="meta.title">제목을 입력하세요</h1>
+      <p class="hero-sub" data-bind="meta.subtitle"></p>
+      <ul class="badges" data-slot="badges"></ul>
+      <div class="hero-links" data-slot="heroLinks"></div>
+    </div>
+  </section>
+
+  <!-- ══ 목표 ══ -->
+  <section class="band" id="goal" data-section="goal">
+    <div class="wrap">
+      <h2 class="sec-h"><span class="sec-ico">◎</span> 목표</h2>
+      <p class="lead" data-bind="goal.text"></p>
+      <div class="notes" data-slot="goal.notes"></div>
+    </div>
+  </section>
+
+  <!-- ══ 핵심 ══ -->
+  <section class="band alt" id="keypoints" data-section="keyPoints">
+    <div class="wrap">
+      <h2 class="sec-h"><span class="sec-ico">✦</span> 오늘 배우는 핵심</h2>
+      <div class="grid cards-4" data-slot="keyPoints"></div>
+    </div>
+  </section>
+
+  <!-- ══ 학습 흐름 ══ -->
+  <section class="band" id="timeline" data-section="timeline">
+    <div class="wrap">
+      <h2 class="sec-h"><span class="sec-ico">▤</span> 오늘의 학습 흐름</h2>
+      <p class="sec-sub" data-bind="timelineNote"></p>
+      <ol class="timeline" data-slot="timeline"></ol>
+    </div>
+  </section>
+
+  <!-- ══ 여섯 줄 프레임워크 ══ -->
+  <section class="band alt" id="framework" data-section="framework">
+    <div class="wrap">
+      <h2 class="sec-h"><span class="sec-ico">✎</span> 이미지 프롬프트 쓰는 법</h2>
+      <p class="sec-sub" data-bind="framework.note"></p>
+      <div class="grid cards-3" data-slot="framework.items"></div>
+      <p class="mnemonic" data-bind="framework.mnemonic"></p>
+    </div>
+  </section>
+
+  <!-- ══ 대응표 ══ -->
+  <section class="band" id="mapping" data-section="mapping">
+    <div class="wrap">
+      <h2 class="sec-h"><span class="sec-ico">⇄</span> 다른 설명과 겹쳐 보기</h2>
+      <p class="sec-sub" data-bind="mapping.note"></p>
+      <div class="table-scroll">
+        <table class="maptable" data-slot="mapping"></table>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ 비교 ══ -->
+  <section class="band alt" id="compare" data-section="compare">
+    <div class="wrap">
+      <h2 class="sec-h"><span class="sec-ico">⚖</span> 이렇게 말고, 이렇게</h2>
+      <div class="compare" data-slot="compare"></div>
+    </div>
+  </section>
+
+  <!-- ══ 실습 ══ -->
+  <section class="band" id="practice" data-section="practice">
+    <div class="wrap">
+      <h2 class="sec-h"><span class="sec-ico">▶</span> 오늘 실습</h2>
+      <p class="sec-sub" data-bind="practice.note"></p>
+      <div data-slot="practice"></div>
+    </div>
+  </section>
+
+  <!-- ══ 변형 ══ -->
+  <section class="band alt" id="variants" data-section="variants">
+    <div class="wrap">
+      <h2 class="sec-h"><span class="sec-ico">⌥</span> 바꿔 쓰기</h2>
+      <p class="sec-sub" data-bind="variantsNote"></p>
+      <div class="grid cards-3" data-slot="variants"></div>
+    </div>
+  </section>
+
+  <!-- ══ 체크 ══ -->
+  <section class="band" id="checklist" data-section="checklist">
+    <div class="wrap">
+      <h2 class="sec-h"><span class="sec-ico">✓</span> 마무리 점검</h2>
+      <ul class="checklist" data-slot="checklist"></ul>
+    </div>
+  </section>
+
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <strong data-bind="site.title"></strong>
+        <p class="muted" data-bind="site.footerDesc"></p>
+      </div>
+      <div data-slot="footLinks"></div>
+    </div>
+    <hr>
+    <p class="credit" data-slot="attribution"></p>
+  </div>
+</footer>
+
+<button type="button" class="totop" id="toTop" aria-label="맨 위로">↑</button>
+
+<script src="content/session-04.js"></script>
+<script src="assets/app.js"></script>
+</body>
+</html>
